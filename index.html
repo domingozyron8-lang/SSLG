@@ -7,14 +7,14 @@
     <style>
         /* --- 1. GENERAL DESIGN --- */
         body { 
-            font-family: Arial, sans-serif; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0; 
             background: url('https://file.garden/aQ1RSq80InNm8Bm5/82302413_112900173776766_7229938772589150208_n.jpg') no-repeat center center fixed;
             background-size: cover;
-            color: black;
+            color: #333;
         }
 
-        /* --- 2. HEADER (RESPONSIVE) --- */
+        /* --- 2. HEADER & NAVIGATION --- */
         header {
             background-color: darkred;
             min-height: 70px;
@@ -25,7 +25,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-sizing: border-box;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .logo-section { 
@@ -40,6 +40,7 @@
             height: 45px;
             border-radius: 50%;
             background: white; 
+            object-fit: cover;
         }
 
         nav ul {
@@ -54,7 +55,8 @@
             color: white; 
             text-decoration: none;
             font-weight: bold; 
-            cursor: pointer; 
+            cursor: pointer;
+            transition: 0.3s;
         }
         nav ul li a:hover { color: #ffd700; }
 
@@ -64,166 +66,148 @@
             display: none;
             position: absolute; 
             background: white; 
-            top: 30px; 
+            top: 35px; 
             right: 0;
-            min-width: 160px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+            min-width: 180px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            overflow: hidden;
         }
         .dropdown-menu a { 
             color: #333; 
-            padding: 10px; 
+            padding: 12px 15px; 
             display: block;
             text-decoration: none;
             border-bottom: 1px solid #eee; 
+            font-size: 14px;
         }
+        .dropdown-menu a:hover { background-color: #f4f4f4; }
         .show { display: block; }
 
         /* --- 3. PAGE CONTENT --- */
         .page { 
             display: none; 
-            padding: 50px 10%; 
+            padding: 40px 5%; 
             min-height: 80vh; 
-            text-align: center; 
+            text-align: center;
+            box-sizing: border-box;
         }
-        .active { display: block; }
+        .active { display: block; animation: fadeIn 0.5s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .glass-container { 
-            background: rgba(255, 255, 255, 0.9); 
+            background: rgba(255, 255, 255, 0.92); 
             padding: 30px;
-            border-radius: 30px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            max-width: 1000px;
+            border-radius: 25px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            max-width: 1100px;
             margin: auto;
         }
 
-        /* Responsive Main Images */
-        .glass-container img {
+        .glass-container img.hero-img {
             width: 100%;
-            max-width: 890px;
+            max-width: 800px;
             height: auto;
             border-radius: 15px;
+            margin-top: 20px;
         }
 
-        /* Officers Grid */
+        /* Officers Cards */
+        .officer-section { margin-top: 30px; }
         .card { 
             background: white; 
-            padding: 20px; 
+            padding: 15px; 
             border-radius: 15px; 
             display: inline-block; 
-            width: 170px; 
+            width: 180px; 
             margin: 10px; 
-            border-top: 5px solid #004488; 
+            border-top: 5px solid darkred; 
             vertical-align: top;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
         }
+        .card:hover { transform: translateY(-5px); }
         .card img { 
-            width: 100px; 
-            height: 100px;
+            width: 110px; 
+            height: 110px;
             border-radius: 50%; 
             object-fit: cover; 
             margin-bottom: 10px; 
+            background: #eee;
         }
+        .card h3 { font-size: 16px; margin: 10px 0 5px; color: darkred; }
+        .card p { font-size: 14px; margin: 2px 0; color: #666; }
 
-        /* Events Section */
+        /* Events Horizontal Scroll */
         .horizontal-line-wrapper {
             display: flex;
             overflow-x: auto;
             gap: 20px;
             padding: 20px 0;
-            white-space: nowrap;
+            scrollbar-width: thin;
         }
         .event-container {
-            flex: 0 0 250px;
-            display: inline-block;
+            flex: 0 0 260px;
             text-align: center;
         }
         .album-cover {
             width: 100%;
             height: 180px;
             object-fit: cover;
-            border-radius: 15px;
+            border-radius: 12px;
             cursor: pointer;
             transition: 0.3s;
-            border: 4px solid white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 3px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        .album-cover:hover { transform: scale(1.05); }
-
+        .album-cover:hover { filter: brightness(0.8); }
         .event-date {
             background: darkred;
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
             margin-top: 10px;
             display: inline-block;
         }
 
-        /* --- 4. FEEDBACK FORM --- */
-        .feedback-form { max-width: 400px; margin: auto; text-align: left; }
-        input, textarea { 
-            width: 100%; 
-            padding: 10px; 
-            margin: 5px 0; 
-            border: 1px solid #ccc; 
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        .input-error { border: 2px solid red !important; background-color: #ffe6e6 !important; }
-        .error-text { color: red; font-size: 12px; display: none; margin-bottom: 10px; }
-
-        /* --- 5. MODAL STYLES --- */
+        /* --- 4. FEEDBACK & MODAL --- */
+        .feedback-form { max-width: 450px; margin: auto; text-align: left; }
         .modal {
             display: none;
             position: fixed;
             z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            justify-content: center;
-            align-items: center;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center; align-items: center;
         }
         .modal-content {
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            width: 80%;
-            max-width: 800px;
-            max-height: 80vh;
-            overflow-y: auto;
+            background: white; padding: 25px; border-radius: 15px;
+            width: 90%; max-width: 900px; max-height: 85vh; overflow-y: auto;
             position: relative;
         }
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px; margin-top: 20px;
         }
-        .close-btn {
-            position: absolute;
-            right: 20px;
-            top: 10px;
-            font-size: 30px;
-            cursor: pointer;
-        }
+        .gallery-grid img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; }
+        .close-btn { position: absolute; right: 20px; top: 10px; font-size: 35px; cursor: pointer; }
 
-        /* --- MOBILE MEDIA QUERIES --- */
+        /* --- 5. RESPONSIVE QUERIES --- */
         @media (max-width: 768px) {
-            header { flex-direction: column; text-align: center; }
-            .logo-section { margin-bottom: 10px; flex-direction: column; }
-            nav ul { gap: 10px; flex-wrap: wrap; justify-content: center; }
-            .page { padding: 30px 5%; }
-            .card { width: 140px; }
-            .modal-content { width: 95%; padding: 15px; }
+            header { flex-direction: column; padding: 15px; }
+            .logo-section { margin-bottom: 15px; }
+            nav ul { gap: 12px; font-size: 14px; flex-wrap: wrap; justify-content: center; }
+            .card { width: 40%; min-width: 140px; }
+            .page { padding: 20px 3%; }
         }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: #fff;
-        }
+        footer { text-align: center; padding: 25px; background: #222; color: #fff; margin-top: 20px; }
     </style>
 </head>
 <body>
@@ -254,58 +238,127 @@
     <div id="home" class="page active">
         <div class="glass-container">
             <h1>Welcome To MNHS SSLG</h1>
-            <p>Ang official portal ng SSLG.</p>
-            <img src="https://image2url.com/r2/default/images/1773497175854-64935e38-4b81-4721-a311-ff89a7e2c1dd.jpg" alt="Hero Image">
+            <p>Ang official portal ng Supreme Secondary Learner Government.</p>
+            <img class="hero-img" src="https://image2url.com/r2/default/images/1773497175854-64935e38-4b81-4721-a311-ff89a7e2c1dd.jpg">
         </div>
     </div>
 
     <div id="mission" class="page">
         <div class="glass-container">
             <h2>Mission & Vision</h2>
-            <h3>Vision</h3>
-            <p>We dream of Filipinos who passionately love their country and whose values and competencies enable them to realize their full potential...</p>
-            <h3>Mission</h3>
-            <p>To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education...</p>
-            <h3>Core Values</h3>
-            <ul style="list-style: none; padding: 0;">
-                <li>Maka-Diyos | Maka-Tao | Makalikasan | Makabansa</li>
-            </ul>
+            <div style="text-align: left; max-width: 800px; margin: auto;">
+                <h3>Vision</h3>
+                <p>We dream of Filipinos who passionately love their country and whose values and competencies enable them to realize their full potential and contribute meaningfully to building the nation.</p>
+                <h3>Mission</h3>
+                <p>To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where: Learners learn in a child-friendly, safe, and motivating environment.</p>
+                <h3>Core Values</h3>
+                <p><strong>Maka-Diyos | Maka-Tao | Makalikasan | Makabansa</strong></p>
+            </div>
         </div>
     </div>
 
     <div id="history" class="page">
         <div class="glass-container">
             <h2>History</h2>
-            <p>History of Muntindilaw National High School goes here.</p>
+            <p>Content regarding the history of the school and SSLG organization will be updated soon.</p>
         </div>
     </div>
 
     <div id="officers" class="page">
         <div class="glass-container">
             <h2>SSLG Officers</h2>
-            <h3>Adviser</h3>
-            <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/b25d09b2-5e2a-4986-bdf1-9c27d63a9a0a.jpg"><h4>John Paul Datu</h4><p>Teacher</p></div>
             
-            <h3>Executive Board</h3>
-            <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/09454c72-4b64-41a0-8b12-914fb2bbbf7e.jpg"><h4>Rheya Shainaya C.</h4><p>President</p></div>
-            <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/vp.jpg"><h4>Gervasio Ken A.</h4><p>Vice President</p></div>
+            <div class="officer-section">
+                <h3>Adviser</h3>
+                <div class="card">
+                    <img src="https://file.garden/aQ1RSq80InNm8Bm5/b25d09b2-5e2a-4986-bdf1-9c27d63a9a0a.jpg">
+                    <h3>John Paul Datu</h3>
+                    <p><strong>Teacher</strong></p>
+                </div>
+            </div>
+
+            <div class="officer-section">
+                <h3>Executive Board</h3>
+                <div class="card">
+                    <img src="https://file.garden/aQ1RSq80InNm8Bm5/09454c72-4b64-41a0-8b12-914fb2bbbf7e.jpg">
+                    <h3>Rheya Shainaya C.</h3>
+                    <p><strong>President</strong></p>
+                    <p>Grade 12</p>
+                </div>
+                <div class="card">
+                    <img src="https://file.garden/aQ1RSq80InNm8Bm5/vp.jpg">
+                    <h3>Gervasio Ken Sravoj Nyel A.</h3>
+                    <p><strong>Vice President</strong></p>
+                    <p>Grade 11</p>
+                </div>
+            </div>
+
+            <div class="officer-section">
+                <h3>Council Members</h3>
+                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/Millosa.jpg"><h3>Millosa Alliah Kate P.</h3><p>Secretary</p><p>Grade 10</p></div>
+                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/35f20f4e-c60b-4676-8277-4da230012dd0.jpg"><h3>Cortez Jazhiel B.</h3><p>Treasurer</p><p>Grade 10</p></div>
+                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/8fab5995-bf4b-4abe-bb6c-a1a101237b05.jpg"><h3>Garvacio Kyz Rajsen Velle A.</h3><p>Treasurer</p><p>Grade 10</p></div>
+                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/jjj.jpg"><h3>Horton Sevita Ellaine E.</h3><p>Treasurer</p><p>Grade 10</p></div>
+                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/3ec672a0-b7b2-4547-945d-f4e772baed17.jpg"><h3>Solomon Mary Rose B.</h3><p>Treasurer</p><p>Grade 10</p></div>
+                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/g8.jpg"><h3>Marugong Kathaleza</h3><p>Representative</p><p>Grade 8</p></div>
+                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/dag.jpg"><h3>Daclitan Princess Abigail F.</h3><p>Representative</p><p>Grade 9</p></div>
+                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/mer.jpg"><h3>Merhan Maria Elena S.</h3><p>Representative</p><p>Grade 10</p></div>
+                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/fr.jpg"><h3>Cabatcha Fritz Gerald</h3><p>Representative</p><p>Grade 11</p></div>
+                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/pla.jpg"><h3>Plaza Jascy M.</h3><p>Representative</p><p>Grade 12</p></div>
+            </div>
         </div>
     </div>
 
     <div id="events" class="page">
         <div class="glass-container">
             <h2>Events Gallery</h2>
-            <p><i>Click to view photos</i></p>
+            <p><i>Click the cover to view the album</i></p>
             <div class="horizontal-line-wrapper">
                 <div class="event-container">
                     <h3>Earthquake Drill</h3>
-                    <img src="https://file.garden/aQ1RSq80InNm8Bm5/546622129_1181312777351713_3001568193902149375_n.jpg" class="album-cover" onclick="openGallery('Earthquake Drill', ['https://file.garden/aQ1RSq80InNm8Bm5/544854103_1181312897351701_4319133098202076674_n.jpg', 'https://file.garden/aQ1RSq80InNm8Bm5/eart.jpg'])">
+                    <img src="https://file.garden/aQ1RSq80InNm8Bm5/546622129_1181312777351713_3001568193902149375_n.jpg" class="album-cover" 
+                    onclick="openGallery('Earthquake Drill', [
+                        'https://file.garden/aQ1RSq80InNm8Bm5/544854103_1181312897351701_4319133098202076674_n.jpg',
+                        'https://file.garden/aQ1RSq80InNm8Bm5/546619617_1181312774018380_6740619984527043733_n.jpg',
+                        'https://file.garden/aQ1RSq80InNm8Bm5/yuss.jpg',
+                        'https://file.garden/aQ1RSq80InNm8Bm5/546622129_1181312777351713_3001568193902149375_n.jpg',
+                        'https://file.garden/aQ1RSq80InNm8Bm5/eart.jpg'
+                    ])">
                     <span class="event-date">July 10, 2024</span>
                 </div>
+
                 <div class="event-container">
                     <h3>Teachers' Day</h3>
-                    <img src="https://file.garden/aQ1RSq80InNm8Bm5/558316681_1204630378353286_3512609857543434423_n.jpg" class="album-cover" onclick="openGallery('Teachers Day', ['https://file.garden/aQ1RSq80InNm8Bm5/558209081_1204634151686242_7539448497413779030_n.jpg'])">
-                    <span class="event-date">Oct 4, 2024</span>
+                    <img src="https://file.garden/aQ1RSq80InNm8Bm5/558316681_1204630378353286_3512609857543434423_n.jpg" class="album-cover" 
+                    onclick="openGallery('Teachers Day', [
+                        'https://file.garden/aQ1RSq80InNm8Bm5/558209081_1204634151686242_7539448497413779030_n.jpg',
+                        'https://file.garden/aQ1RSq80InNm8Bm5/558049858_1204634065019584_2807918040289982653_n.jpg',
+                        'https://file.garden/aQ1RSq80InNm8Bm5/558640156_1204633808352943_2552012521393647036_n.jpg',
+                        'https://file.garden/aQ1RSq80InNm8Bm5/558316681_1204630378353286_3512609857543434423_n.jpg',
+                        'https://file.garden/aQ1RSq80InNm8Bm5/558921465_1204630265019964_5406266329848643123_n.jpg'
+                    ])">
+                    <span class="event-date">October 4, 2024</span>
+                </div>
+
+                <div class="event-container">
+                    <h3>Teachers' Day Sports</h3>
+                    <img src="https://file.garden/aQ1RSq80InNm8Bm5/play.jpg" class="album-cover" 
+                    onclick="openGallery('Teachers Day Sports', [
+                        'https://file.garden/aQ1RSq80InNm8Bm5/mp.jpg',
+                        'https://file.garden/aQ1RSq80InNm8Bm5/sp.jpg',
+                        'https://file.garden/aQ1RSq80InNm8Bm5/ps.jpg'
+                    ])">
+                    <span class="event-date">October 5, 2024</span>
+                </div>
+
+                <div class="event-container">
+                    <h3>Brigada Eskwela</h3>
+                    <img src="https://file.garden/aQ1RSq80InNm8Bm5/483062415_1041446014671724_6147385690763955759_n.jpg" class="album-cover" 
+                    onclick="openGallery('Brigada Eskwela', [
+                        'https://file.garden/aQ1RSq80InNm8Bm5/484268352_1041445941338398_4879277023175405674_n.jpg',
+                        'https://file.garden/aQ1RSq80InNm8Bm5/483062415_1041446014671724_6147385690763955759_n.jpg'
+                    ])">
+                    <span class="event-date">July 2024</span>
                 </div>
             </div>
         </div>
@@ -316,16 +369,17 @@
             <h2>Feedback Form</h2>
             <form id="fForm" class="feedback-form">
                 <label>Name:</label>
-                <input type="text" id="uName" placeholder="Letters only">
+                <input type="text" id="uName" placeholder="Full Name">
                 <div id="nErr" class="error-text">⚠️ Letters only please.</div>
 
                 <label>Email:</label>
                 <input type="text" id="uEmail" placeholder="example@gmail.com">
                 <div id="eErr" class="error-text">⚠️ Valid @gmail.com required.</div>
 
-                <label>Message:</label>
-                <textarea id="uMsg" rows="4" placeholder="Write here..."></textarea>
-                <button type="submit" style="width:100%; padding:10px; background:#004488; color:white; border:none; cursor:pointer; border-radius: 5px; margin-top: 10px;">Submit</button>
+                <label>Message/Comment:</label>
+                <textarea id="uMsg" rows="4" placeholder="Share your thoughts..."></textarea>
+
+                <button type="submit" style="width:100%; padding:12px; background:darkred; color:white; border:none; border-radius: 8px; cursor:pointer; font-weight: bold; margin-top: 10px;">Submit Feedback</button>
             </form>
         </div>
     </div>
@@ -333,13 +387,13 @@
     <div id="gModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeGallery()">&times;</span>
-            <h2 id="gTitle">Gallery</h2>
+            <h2 id="gTitle" style="color: darkred;">Gallery</h2>
             <div class="gallery-grid" id="gGrid"></div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 MNHS SSLG. All Rights Reserved.</p>
+        <p>&copy; 2026 MNHS SSLG. All Rights Reserved.</p>
     </footer>
 
     <script>
@@ -358,18 +412,18 @@
             const modal = document.getElementById('gModal');
             const grid = document.getElementById('gGrid');
             const gTitle = document.getElementById('gTitle');
+
             gTitle.innerText = title;
             grid.innerHTML = ''; 
 
             images.forEach(src => {
-                if(src) {
+                if(src && src.trim() !== "") {
                     let img = document.createElement('img');
                     img.src = src;
-                    img.style.width = "100%";
-                    img.style.borderRadius = "10px";
                     grid.appendChild(img);
                 }
             });
+
             modal.style.display = 'flex';
         }
 
@@ -389,10 +443,14 @@
 
             n.classList.toggle('input-error', !nV);
             document.getElementById('nErr').style.display = nV ? 'none' : 'block';
+            
             e_m.classList.toggle('input-error', !eV);
             document.getElementById('eErr').style.display = eV ? 'none' : 'block';
 
-            if(nV && eV) { alert("Thank you for your Feedback!"); this.reset(); }
+            if(nV && eV) { 
+                alert("Thank you for your Feedback!"); 
+                this.reset(); 
+            }
         }
     </script>
 </body>
