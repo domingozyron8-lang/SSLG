@@ -94,21 +94,20 @@
             display: block; 
             
         }
-    .glass-container { 
-    background: rgba(255, 255, 255, 0.9); 
-    padding: 20px;
-    border-radius: 30px; 
-    max-width: 900px;    /* Limit sa laptop */
-    width: 95%;         /* Nag-iiwan ng konting space sa gilid pag sa phone */
-    margin: auto;       /* Palaging nasa gitna */
-}
+ .glass-container { 
+    width: 100%;      /* Sasakto sa screen ng phone */
+    max-width: 900px; /* Limit para sa laptop */
+    box-sizing: border-box; /* Pinaka-importante: Para hindi lumampas kahit may padding */
+
 }
             
             
        }
-      img {
-           width: 890px;
-           height: 500px;
+     img.hero-img {
+    width: 100%;        /* Sa phone, susunod siya sa lapad ng screen */
+    max-width: 890px;   /* Sa laptop, titigil siya sa 890px (hindi lalampas) */
+    height: auto;       /* Hindi magmumulang banat o pait ang picture */
+}
        }
         /* Officers Grid */
         .card { 
