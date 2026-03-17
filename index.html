@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MNHS SSLG Official Website</title>
+    <title>Supreme Secondary Learner Government MNHS </title>
     <style>
         /* --- 1. BASE THEME --- */
         body { 
@@ -14,60 +14,171 @@
 
         /* --- 2. NAVIGATION --- */
         header {
-            background-color: darkred; min-height: 70px; display: flex;
-            justify-content: space-between; align-items: center; padding: 10px 5%;
-            position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+            background-color: darkred;
+            min-height: 70px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 10px 5%;
+            position: sticky;
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.4);
         }
-        .logo-section { display: flex; align-items: center; color: white; gap: 10px; cursor: pointer; }
-        .logo-section img { width: 42px; height: 42px; border-radius: 50%; background: white; object-fit: cover; }
+        .logo-section { 
+            display: flex; 
+            align-items: center;
+            color: white;
+            gap: 10px; cursor: pointer;
+        }
+        .logo-section img { 
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: white;
+            object-fit: cover;
+        }
         
-        nav ul { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; }
-        nav ul li a { color: white; text-decoration: none; font-weight: bold; font-size: 14px; cursor: pointer; transition: 0.3s; }
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+            gap: 18px; 
+            margin: 0; 
+            padding: 0;
+        }
+        nav ul li a {
+            color: white; 
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px; 
+            cursor: pointer; 
+            transition: 0.3s;
+        }
         nav ul li a:hover { color: #ffd700; }
 
-        .dropdown { position: relative; }
-        .dropdown-menu { 
-            display: none; position: absolute; background: white; top: 35px; right: 0;
-            min-width: 170px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border-radius: 8px; overflow: hidden;
+        .dropdown {
+            position: relative; 
         }
-        .dropdown-menu a { color: #333; padding: 12px; display: block; text-decoration: none; border-bottom: 1px solid #eee; font-size: 13px; }
-        .show { display: block; }
+        .dropdown-menu { 
+            display: none; 
+            position: absolute;
+            background: white; 
+            top: 35px;
+            right: 0;
+            min-width: 170px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .dropdown-menu a {
+            color: #333; padding:
+                12px; display: block;
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            font-size: 13px;
+        }
+        .show {
+            display: block;
+        }
 
         /* --- 3. PAGE SYSTEM --- */
-        .page { display: none; padding: 35px 5%; min-height: 80vh; text-align: center; box-sizing: border-box; }
-        .active { display: block; animation: fadeIn 0.4s; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .page {
+            display: none; 
+            padding: 35px 5%; 
+            min-height: 80vh;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .active { 
+            display: block; 
+            animation: fadeIn 0.4s;
+        }
+        @keyframes fadeIn { 
+            from { 
+                opacity: 0;
+                transform: translateY(5px);
+            } to { opacity: 1;
+                  transform: translateY(0); 
+                 } }
 
         .glass-container { 
-            background: rgba(255, 255, 255, 0.96); padding: 30px; border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15); max-width: 1050px; margin: auto;
+            background: rgba(255, 255, 255, 0.96);  
+            padding: 30px; border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            max-width: 1050px; margin: auto;
         }
-        .hero-img { width: 100%; max-width: 750px; height: auto; border-radius: 12px; margin-top: 20px; }
+        .hero-img {
+            width: 100%;
+            max-width: 750px;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
 
         /* --- 4. OFFICERS CARDS --- */
-        .officer-group { margin-bottom: 30px; }
-        .card { 
-            background: #fff; padding: 15px; border-radius: 15px; display: inline-block; 
-            width: 165px; margin: 10px; border-top: 5px solid darkred; vertical-align: top;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.06); transition: 0.3s;
+        .officer-group { 
+            margin-bottom: 30px; 
         }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; background: #f0f0f0; }
-        .card h3 { font-size: 14px; margin: 8px 0 4px; color: darkred; }
-        .card p { font-size: 12px; margin: 0; color: #555; font-weight: 600; }
+        .card { 
+            background: #fff; 
+            padding: 15px; 
+            border-radius: 15px;
+            display: inline-block; 
+            width: 165px; 
+            margin: 10px;
+            border-top: 5px solid darkred;
+            vertical-align: top;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+        .card:hover { 
+            transform: translateY(-5px); 
+        }
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; 
+            object-fit: cover;
+            margin-bottom: 10px; 
+            background: #f0f0f0;
+        }
+        .card h3 {
+            font-size: 14px;
+            margin: 8px 0 4px; 
+            color: darkred;
+        }
+        .card p { 
+            font-size: 12px;
+            margin: 0;
+            color: #555;
+            font-weight: 600;
+        }
 
         /* --- 5. EVENTS SCROLL & ZOOM FIX --- */
         .horizontal-line-wrapper {
-            display: flex; overflow-x: auto; gap: 20px; padding: 15px 5px;
-            scrollbar-width: none; -webkit-overflow-scrolling: touch;
+            display: flex; 
+            overflow-x: auto; 
+            gap: 20px; 
+            padding: 15px 5px;
+            scrollbar-width: none; 
+            -webkit-overflow-scrolling: touch;
         }
-        .event-container { flex: 0 0 250px; text-align: center; }
+        .event-container { 
+            flex: 0 0 250px;
+            text-align: center;
+        }
         
         /* ETO YUNG ZOOM FIX */
         .album-cover {
-            width: 100%; height: 170px; object-fit: cover; border-radius: 12px;
-            cursor: pointer; border: 3px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+            width: 100%; 
+            height: 170px; 
+            object-fit: cover;
+            border-radius: 12px;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Smooth transition */
         }
         .album-cover:hover { 
             transform: scale(1.08); /* Eto yung nagpapa-zoom */
@@ -75,32 +186,95 @@
             z-index: 10;
         }
 
-        .event-date { background: darkred; color: white; padding: 4px 12px; border-radius: 15px; font-size: 11px; margin-top: 15px; display: inline-block; }
+        .event-date { 
+            background: darkred; 
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 11px; 
+            margin-top: 15px; 
+            display: inline-block; 
+        }
 
         /* --- 6. THE MODAL --- */
         #gModal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.95); z-index: 10000; justify-content: center; align-items: center;
+            display: none; 
+            position: fixed;
+            top: 0; 
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000; 
+            justify-content: center;
+            align-items: center;
         }
         .modal-content {
             background: white; width: 92%; max-width: 850px; max-height: 85vh; 
             border-radius: 15px; position: relative; padding: 25px; overflow-y: auto;
             -webkit-overflow-scrolling: touch;
         }
-        .close-btn { position: sticky; top: 0; float: right; font-size: 35px; color: darkred; cursor: pointer; font-weight: bold; background: white; border-radius: 50%; width: 40px; height: 40px; text-align: center; line-height: 35px; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; margin-top: 20px; }
-        .gallery-grid img { width: 100%; height: 130px; object-fit: cover; border-radius: 8px; transition: 0.3s; }
-        .gallery-grid img:hover { filter: brightness(0.8); }
+        .close-btn {
+            position: sticky;
+            top: 0; 
+            float: right;
+            font-size: 35px; 
+            color: darkred;
+            cursor: pointer; 
+            font-weight: bold; 
+            background: white;
+            border-radius: 50%; 
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 35px; 
+        }
+        .gallery-grid { 
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 12px; margin-top: 20px;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 8px; 
+            transition: 0.3s;
+        }
+        .gallery-grid img:hover { 
+            filter: brightness(0.8);
+        }
 
         /* --- MOBILE FIXES --- */
         @media (max-width: 768px) {
-            header { flex-direction: column; padding: 15px; text-align: center; }
-            nav ul { margin-top: 15px; flex-wrap: wrap; justify-content: center; gap: 12px; }
-            .card { width: 42%; min-width: 140px; }
-            .modal-content { width: 95%; padding: 15px; }
+            header {
+                flex-direction: column; 
+                padding: 15px;
+                text-align: center;
+            }
+            nav ul { 
+                margin-top: 15px; 
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+            .card {
+                width: 42%; 
+                min-width: 140px; 
+            }
+            .modal-content { 
+                width: 95%; 
+                padding: 15px; 
+            }
         }
 
-        footer { text-align: center; padding: 25px; background: #1a1a1a; color: #ccc; margin-top: 30px; font-size: 13px; }
+        footer {
+            text-align: center; 
+            padding: 25px;
+            background: #1a1a1a;
+            color: #ccc;
+            margin-top: 30px; font-size: 13px;
+        }
     </style>
 </head>
 <body>
@@ -189,19 +363,53 @@
                 
                 <div class="event-container">
                     <h3>JS Event</h3>
-                    <img src="https://i.imgur.com/N6NKwo8.jpeg" class="album-cover" onclick="openGallery('JS Photos', ['https://i.imgur.com/N6NKwo8.jpeg','https://i.imgur.com/J6BpTsc.jpeg','https://i.imgur.com/VhgTS8y.jpeg','https://i.imgur.com/4vcnPbv.jpeg','https://i.imgur.com/Oi4m311.jpeg','https://i.imgur.com/k4XZwir.jpeg','https://i.imgur.com/jOmbjiv.jpeg'])">
+                    <img src="https://i.imgur.com/V46jsiA.jpeg" class="album-cover" onclick="openGallery('JS Photos', [
+                        'https://i.imgur.com/N6NKwo8.jpeg',
+                        'https://i.imgur.com/J6BpTsc.jpeg',
+                        'https://i.imgur.com/VhgTS8y.jpeg',
+                        'https://i.imgur.com/4vcnPbv.jpeg',
+                        'https://i.imgur.com/Oi4m311.jpeg',
+                        'https://i.imgur.com/k4XZwir.jpeg',
+                        'https://i.imgur.com/jOmbjiv.jpeg'
+                        'https://i.imgur.com/BLDtDAJ.jpeg',
+                        'https://i.imgur.com/rfVdUpS.jpeg',
+                        'https://i.imgur.com/9uPu7bB.jpeg',
+                        'https://i.imgur.com/iC5h7vE.jpeg',
+                        'https://i.imgur.com/GhnhO7G.jpeg',
+                        
+                    ])">
                     <span class="event-date">Oct 5, 2024</span>
                 </div>
 
                 <div class="event-container">
                     <h3>Teachers' Day</h3>
-                    <img src="https://file.garden/aQ1RSq80InNm8Bm5/558316681_1204630378353286_3512609857543434423_n.jpg" class="album-cover" onclick="openGallery('Teachers Day', ['https://file.garden/aQ1RSq80InNm8Bm5/558209081_1204634151686242_7539448497413779030_n.jpg','https://file.garden/aQ1RSq80InNm8Bm5/558049858_1204634065019584_2807918040289982653_n.jpg','https://i.imgur.com/uDJBCY4.jpeg','https://i.imgur.com/bPVn33b.jpeg'])">
+                    <img src="https://file.garden/aQ1RSq80InNm8Bm5/558316681_1204630378353286_3512609857543434423_n.jpg" class="album-cover" onclick="openGallery('Teachers Day', [
+                        'https://file.garden/aQ1RSq80InNm8Bm5/558209081_1204634151686242_7539448497413779030_n.jpg',
+                        'https://file.garden/aQ1RSq80InNm8Bm5/558049858_1204634065019584_2807918040289982653_n.jpg',
+                        'https://i.imgur.com/uDJBCY4.jpeg','https://i.imgur.com/bPVn33b.jpeg'
+                        'https://i.imgur.com/RNOJOEe.jpeg',
+                        'https://i.imgur.com/rK0JkFX.jpeg'
+                        'https://i.imgur.com/hbX78gV.jpeg',
+                        'https://i.imgur.com/7RkzfhD.jpeg',
+                        '',
+                        '',
+                        
+                    ])">
                     <span class="event-date">Oct 4, 2024</span>
                 </div>
 
                 <div class="event-container">
                     <h3>Earthquake Drill</h3>
-                    <img src="https://file.garden/aQ1RSq80InNm8Bm5/546622129_1181312777351713_3001568193902149375_n.jpg" class="album-cover" onclick="openGallery('Drill Photos', ['https://file.garden/aQ1RSq80InNm8Bm5/yuss.jpg','https://file.garden/aQ1RSq80InNm8Bm5/eart.jpg','https://i.imgur.com/RNOJOEe.jpeg','https://i.imgur.com/rK0JkFX.jpeg'])">
+                    <img src="https://file.garden/aQ1RSq80InNm8Bm5/546622129_1181312777351713_3001568193902149375_n.jpg" class="album-cover" onclick="openGallery('Drill Photos', [
+                        'https://file.garden/aQ1RSq80InNm8Bm5/yuss.jpg',
+                        'https://file.garden/aQ1RSq80InNm8Bm5/eart.jpg',
+                        'https://i.imgur.com/RNOJOEe.jpeg',
+                        'https://i.imgur.com/rK0JkFX.jpeg'
+                        'https://i.imgur.com/hbX78gV.jpeg',
+                        'https://i.imgur.com/7RkzfhD.jpeg',
+                        '',
+                        '',
+                    ])">
                     <span class="event-date">July 10, 2024</span>
                 </div>
 
