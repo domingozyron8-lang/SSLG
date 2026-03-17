@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Supreme Secondary Learner Government MNHS </title>
+    <title>Supreme Secondary Learner Government MNHS</title>
     <style>
-           
-           body { 
+        body { 
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0; 
             background: url('https://image2url.com/r2/default/images/1773753928226-76c65ded-3def-4446-a0cb-977c8d12b426.jpg') no-repeat center center fixed;
@@ -29,92 +28,100 @@
         }
 
         .logo-section { display: flex; align-items: center; gap: 8px; cursor: pointer; }
-        .logo-section img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid pink; background: white; }
-        .logo-section span { font-weight: bold; color: darkred; font-size: 1rem; }
+        .logo-section img { width: 35px; height: 35px; border-radius: 50%; border: 2px solid pink; }
+        .logo-section span { font-weight: bold; color: darkred; font-size: 0.9rem; }
 
-        nav ul { list-style: none; display: flex; gap: 12px; margin: 0; padding: 0; }
-        nav ul li a { color: darkred; text-decoration: none; font-weight: bold; font-size: 13px; cursor: pointer; }
-
-        /* --- DROPDOWN MENU --- */
+        nav ul { list-style: none; display: flex; gap: 15px; margin: 0; padding: 0; align-items: center; }
+        nav ul li a { color: darkred; text-decoration: none; font-weight: bold; font-size: 11px; cursor: pointer; text-transform: uppercase; }
+        
+        /* --- DROPDOWN --- */
         .dropdown { position: relative; }
         .dropdown-menu { 
             display: none; position: absolute; background: white; top: 30px; right: 0;
-            min-width: 160px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border-radius: 8px;
-            border: 2px solid pink; overflow: hidden; z-index: 2000;
+            min-width: 150px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border-radius: 8px;
+            border: 2px solid pink; z-index: 2000;
         }
-        .dropdown-menu a { padding: 12px; display: block; color: #333; text-decoration: none; font-size: 13px; border-bottom: 1px solid #eee; }
+        .dropdown-menu a { padding: 12px; display: block; color: #333; text-decoration: none; font-size: 12px; border-bottom: 1px solid #eee; }
         .show { display: block; }
 
-        /* --- UNIVERSAL GLASS CONTAINER --- */
-        .page { display: none; padding: 20px 3%; min-height: 85vh; text-align: center; box-sizing: border-box; }
+        /* --- UNIVERSAL CONTAINER --- */
+        .page { display: none; padding: 20px 3%; min-height: 80vh; text-align: center; box-sizing: border-box; }
         .active { display: block; animation: fadeIn 0.4s ease-out; }
 
         .glass-container { 
             background: rgba(255, 255, 255, 0.96);  
-            padding: 25px;
-            border-radius: 20px; 
-            width: 100%; 
-            max-width: 950px; 
-            margin: 10px auto;    
-            border: 5px solid pink; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            padding: 25px; border-radius: 20px; 
+            width: 100%; max-width: 950px; margin: 10px auto;    
+            border: 5px solid pink; box-shadow: 0 10px 25px rgba(0,0,0,0.15);
             box-sizing: border-box;
         }
 
-        /* --- EVENTS (ALBUM STYLE) --- */
-        .events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .event-card {
-            background: white; border-radius: 15px; border: 3px solid pink; padding: 10px;
-        }
-        .event-card img {
-            width: 100%; height: 150px; object-fit: cover; border-radius: 10px; border: 2px solid pink;
-        }
+        .hero-img { width: 100%; max-height: 300px; object-fit: cover; border-radius: 15px; border: 4px solid pink; margin-top: 15px; }
 
-        /* --- FEEDBACK FORM (FIXED) --- */
-        .feedback-form {
-            display: flex; flex-direction: column; align-items: center; gap: 15px;
-            width: 100%; max-width: 500px; margin: 20px auto;
+        /* --- OFFICERS HIERARCHY --- */
+        .officer-group { margin-bottom: 40px; }
+        .officer-group h3 { 
+            color: darkred; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            border-bottom: 2px solid pink; 
+            display: inline-block; 
+            padding-bottom: 5px;
+            margin-bottom: 20px;
         }
-        .feedback-form input, .feedback-form textarea {
-            width: 100%; padding: 12px; border-radius: 10px; border: 2px solid pink; box-sizing: border-box;
-        }
-
-        /* --- OFFICERS GRID --- */
+        
         .officers-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px;
+            display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
         }
-        .card { background: #fff; padding: 15px; border-radius: 15px; border: 3px solid pink; text-align: center; }
-        .card img { width: 80px; height: 80px; border-radius: 50%; border: 3px solid pink; object-fit: cover; }
+        
+        .card { 
+            background: #fff; padding: 15px; border-radius: 15px; border: 3px solid pink; 
+            text-align: center; width: 150px; transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card img { width: 90px; height: 90px; border-radius: 50%; border: 3px solid pink; object-fit: cover; }
+        .card h3 { font-size: 12px; margin: 10px 0 5px; color: darkred; border: none; padding: 0; }
+        .card p { font-size: 10px; margin: 0; font-weight: bold; color: #555; }
 
-        /* --- BUTTONS --- */
-        .btn { 
-            background: darkred; color: white; border: none; padding: 12px 30px; 
-            border-radius: 25px; font-weight: bold; cursor: pointer; transition: 0.3s;
-            text-decoration: none; display: inline-block;
+        /* --- EVENTS GRID --- */
+        .events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .event-container { background: white; padding: 10px; border-radius: 15px; border: 3px solid pink; }
+        .album-cover { width: 100%; height: 150px; object-fit: cover; border-radius: 10px; border: 2px solid pink; cursor: pointer; }
+
+        /* --- BOTTOM SOCIAL SECTION --- */
+        .bottom-socials {
+            margin-top: 30px; padding: 20px; border-top: 2px dashed pink;
         }
-        .fb-btn { background: #3b5998; }
-        .ig-btn { background: #830a4e; }
+        .social-btn {
+            display: inline-block; padding: 10px 20px; margin: 5px; border-radius: 20px;
+            text-decoration: none; color: white; font-weight: bold; font-size: 12px; transition: 0.3s;
+        }
+        .fb-bg { background: #3b5998; }
+        .ig-bg { background: #830a4e; }
+        .social-btn:hover { transform: scale(1.05); opacity: 0.9; }
+
+        /* --- FEEDBACK FORM --- */
+        .feedback-form { display: flex; flex-direction: column; gap: 10px; max-width: 400px; margin: 0 auto; text-align: left; }
+        .feedback-form input, .feedback-form textarea { width: 100%; padding: 12px; border: 2px solid pink; border-radius: 10px; box-sizing: border-box; }
+
+        /* --- GALLERY MODAL --- */
+        #gModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; justify-content: center; align-items: center; }
+        .modal-content { background: white; padding: 20px; border-radius: 15px; width: 90%; max-width: 800px; max-height: 80vh; overflow-y: auto; position: relative; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; }
+        .gallery-grid img { width: 100%; border-radius: 8px; border: 2px solid pink; }
+        .close-btn { position: absolute; top: 10px; right: 20px; font-size: 30px; cursor: pointer; color: darkred; }
 
         /* --- MOBILE ADJUSTMENTS --- */
         @media (max-width: 600px) {
             header { flex-direction: column; padding: 10px; }
-            nav ul { margin-top: 10px; flex-wrap: wrap; justify-content: center; }
-            .glass-container { padding: 15px; width: 98%; }
-            .events-grid, .officers-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-            .event-card img { height: 110px; }
-            .card img { width: 65px; height: 65px; }
+            nav ul { margin-top: 10px; flex-wrap: wrap; justify-content: center; gap: 12px; }
+            .glass-container { width: 98%; padding: 15px; }
+            .card { width: 130px; }
         }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         footer { text-align: center; padding: 20px; background: #000; color: #fff; border-top: 5px solid pink; font-size: 11px; }
-    </style>      
-
-
+    </style>
 </head>
 <body>
 
@@ -146,42 +153,23 @@
             <h1>Welcome To MNHS SSLG</h1>
             <p>The Official Digital Hub of Muntindilaw National High School SSLG.</p>
             <img class="hero-img" src="https://image2url.com/r2/default/images/1773497175854-64935e38-4b81-4721-a311-ff89a7e2c1dd.jpg">
+            
+            <div class="bottom-socials">
+                <p>Follow our Journey:</p>
+                <a href="https://www.facebook.com/share/1EYopy2LkV/" target="_blank" class="social-btn fb-bg">Facebook</a>
+                <a href="https://www.instagram.com/depedtayo_muntindilawnhs_sslg?igsh=MWhvcTN1bmFtbXBsaA==" target="_blank" class="social-btn ig-bg">Instagram</a>
+            </div>
         </div>
     </div>
 
     <div id="mission" class="page">
         <div class="glass-container">
-            <h2>Mission</h2>
-
-
- <p>To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education where:
-
-Students learn in a child-friendly, gender-sensitive, safe, and motivating environment.
-Teachers facilitate learning and constantly nurture every learner.
-Administrators and staff, as stewards of the institution, ensure an enabling and supportive environment for effective learning to happen.
-Family, community, and other stakeholders are actively engaged and share responsibility for developing life-long learners.
-
-</p>
-            <h3>Vision</h3>
-  <p> We dream of Filipinos
-who passionately love their country
-and whose values and competencies
-enable them to realize their full potential
-and contribute meaningfully to building the nation.
-
-As a learner-centered public institution,
-the Department of Education
-continuously improves itself
-to better serve its stakeholders.</p>
-                
- <h3>Core Values</h3>
- <ul>
-<li>Maka-Diyos</li>
-<li>Maka-Tao</li>
-<li>Makalikasan</li>
-<li>Makabansa</li>
- </p></div>
-    </div>
+            <h2 style="color: darkred;">Mission</h2>
+            <p style="text-align: justify; font-size: 14px; line-height: 1.6;">To protect and promote the right of every Filipino to quality, equitable, culture-based, and complete basic education.</p>
+            <h2 style="color: darkred;">Vision</h2>
+            <p style="text-align: justify; font-size: 14px; line-height: 1.6;">We dream of Filipinos who passionately love their country.</p>
+            <h3 style="color: darkred;">Core Values</h3>
+            <p>Maka-Diyos | Maka-Tao | Makalikasan | Makabansa</p>
         </div>
     </div>
 
@@ -194,139 +182,78 @@ to better serve its stakeholders.</p>
 
     <div id="officers" class="page">
         <div class="glass-container">
-            <h2>SSLG Officers 2025-2026</h2>
+            <h2 style="color: darkred; margin-bottom: 30px;">SSLG Officers 2025-2026</h2>
             
             <div class="officer-group">
                 <h3>Adviser</h3>
-                <div class="card"><img src="https://i.imgur.com/Rq7BWty.jpeg"><h3>John Paul Datu</h3><p>SSLG Adviser</p></div>
+                <div class="officers-grid">
+                    <div class="card"><img src="https://i.imgur.com/Rq7BWty.jpeg"><h3>John Paul Datu</h3><p>SSLG Adviser</p></div>
+                </div>
             </div>
 
             <div class="officer-group">
                 <h3>Executive Board</h3>
-                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/09454c72-4b64-41a0-8b12-914fb2bbbf7e.jpg"><h3>Rheya Shainaya C.</h3><p>President</p></div>
-                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/vp.jpg"><h3>Gervasio Ken S.</h3><p>Vice President</p></div>
+                <div class="officers-grid">
+                    <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/09454c72-4b64-41a0-8b12-914fb2bbbf7e.jpg"><h3>Rheya Shainaya C.</h3><p>President</p></div>
+                    <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/vp.jpg"><h3>Gervasio Ken S.</h3><p>Vice President</p></div>
+                </div>
             </div>
 
             <div class="officer-group">
                 <h3>Council Members</h3>
-                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/Millosa.jpg"><h3>Millosa Alliah Kate</h3><p>Secretary</p></div>
-                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/35f20f4e-c60b-4676-8277-4da230012dd0.jpg"><h3>Cortez Jazhiel B.</h3><p>Treasurer</p></div>
-                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/8fab5995-bf4b-4abe-bb6c-a1a101237b05.jpg"><h3>Garvacio Kyz Rajsen</h3><p>Auditor</p></div>
-                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/jjj.jpg"><h3>Horton Sevita Ellaine</h3><p>PIO</p></div>
-                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/3ec672a0-b7b2-4547-945d-f4e772baed17.jpg"><h3>Solomon Mary Rose</h3><p>Protocol Officer</p></div>
-                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/pla.jpg"><h3>Plaza Jascy M.</h3><p>Grade 12 Rep</p></div>
-                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/fr.jpg"><h3>Cabatcha Fritz Gerald</h3><p>Grade 11 Rep</p></div>
-                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/mer.jpg"><h3>Merhan Maria Elena</h3><p>Grade 10 Rep</p></div>
-                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/dag.jpg"><h3>Daclitan Princess</h3><p>Grade 9 Rep</p></div>
-                <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/g8.jpg"><h3>Marugong Kathaleza</h3><p>Grade 8 Rep</p></div>
+                <div class="officers-grid">
+                    <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/Millosa.jpg"><h3>Millosa Alliah Kate</h3><p>Secretary</p></div>
+                    <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/35f20f4e-c60b-4676-8277-4da230012dd0.jpg"><h3>Cortez Jazhiel B.</h3><p>Treasurer</p></div>
+                    <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/8fab5995-bf4b-4abe-bb6c-a1a101237b05.jpg"><h3>Garvacio Kyz Rajsen</h3><p>Auditor</p></div>
+                    <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/jjj.jpg"><h3>Horton Sevita Ellaine</h3><p>PIO</p></div>
+                    <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/3ec672a0-b7b2-4547-945d-f4e772baed17.jpg"><h3>Solomon Mary Rose</h3><p>Protocol Officer</p></div>
+                    <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/pla.jpg"><h3>Plaza Jascy M.</h3><p>Grade 12 Rep</p></div>
+                    <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/fr.jpg"><h3>Cabatcha Fritz Gerald</h3><p>Grade 11 Rep</p></div>
+                    <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/mer.jpg"><h3>Merhan Maria Elena</h3><p>Grade 10 Rep</p></div>
+                    <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/dag.jpg"><h3>Daclitan Princess</h3><p>Grade 9 Rep</p></div>
+                    <div class="card"><img src="https://file.garden/aQ1RSq80InNm8Bm5/g8.jpg"><h3>Marugong Kathaleza</h3><p>Grade 8 Rep</p></div>
+                </div>
             </div>
         </div>
     </div>
 
-  <div id="events" class="page">
-    <div class="glass-container">
-        <h2>Events Gallery</h2>
-        <div class="horizontal-line-wrapper">
-
-            <div class="event-container">
-                <h3>JS Event</h3>
-                <img src="https://i.imgur.com/V46jsiA.jpeg" class="album-cover" alt="JS Event Cover" 
-                    onclick="openGallery('JS Photos', [
-                        'https://i.imgur.com/N6NKwo8.jpeg',
-                        'https://i.imgur.com/J6BpTsc.jpeg',
-                        'https://i.imgur.com/VhgTS8y.jpeg',
-                        'https://i.imgur.com/4vcnPbv.jpeg',
-                        'https://i.imgur.com/Oi4m311.jpeg',
-                        'https://i.imgur.com/k4XZwir.jpeg',
-                        'https://i.imgur.com/jOmbjiv.jpeg',
-                        'https://i.imgur.com/BLDtDAJ.jpeg',
-                        'https://i.imgur.com/rfVdUpS.jpeg',
-                        'https://i.imgur.com/9uPu7bB.jpeg',
-                        'https://i.imgur.com/iC5h7vE.jpeg',
-                        'https://i.imgur.com/GhnhO7G.jpeg'
-                    ])">
-                <span class="event-date">Oct 5, 2024</span>
+    <div id="events" class="page">
+        <div class="glass-container">
+            <h2>Events Gallery</h2>
+            <div class="events-grid">
+                <div class="event-container">
+                    <h3>JS Event</h3>
+                    <img src="https://i.imgur.com/V46jsiA.jpeg" class="album-cover" onclick="openGallery('JS Photos', ['https://i.imgur.com/N6NKwo8.jpeg','https://i.imgur.com/J6BpTsc.jpeg','https://i.imgur.com/VhgTS8y.jpeg','https://i.imgur.com/4vcnPbv.jpeg','https://i.imgur.com/Oi4m311.jpeg','https://i.imgur.com/k4XZwir.jpeg','https://i.imgur.com/jOmbjiv.jpeg','https://i.imgur.com/BLDtDAJ.jpeg','https://i.imgur.com/rfVdUpS.jpeg','https://i.imgur.com/9uPu7bB.jpeg','https://i.imgur.com/iC5h7vE.jpeg','https://i.imgur.com/GhnhO7G.jpeg'])">
+                </div>
+                <div class="event-container">
+                    <h3>Teachers' Day</h3>
+                    <img src="https://file.garden/aQ1RSq80InNm8Bm5/558316681_1204630378353286_3512609857543434423_n.jpg" class="album-cover" onclick="openGallery('Teachers Day', ['https://file.garden/aQ1RSq80InNm8Bm5/558209081_1204634151686242_7539448497413779030_n.jpg','https://file.garden/aQ1RSq80InNm8Bm5/558049858_1204634065019584_2807918040289982653_n.jpg','https://i.imgur.com/uDJBCY4.jpeg'])">
+                </div>
             </div>
-
-            <div class="event-container">
-                <h3>Teachers' Day</h3>
-                <img src="https://file.garden/aQ1RSq80InNm8Bm5/558316681_1204630378353286_3512609857543434423_n.jpg" class="album-cover" alt="Teachers' Day Cover" 
-                    onclick="openGallery('Teachers Day', [
-                        'https://file.garden/aQ1RSq80InNm8Bm5/558209081_1204634151686242_7539448497413779030_n.jpg',
-                        'https://file.garden/aQ1RSq80InNm8Bm5/558049858_1204634065019584_2807918040289982653_n.jpg',
-                        'https://i.imgur.com/uDJBCY4.jpeg',
-                        'https://i.imgur.com/bPVn33b.jpeg',
-                        'https://i.imgur.com/RNOJOEe.jpeg',
-                        'https://i.imgur.com/rK0JkFX.jpeg',
-                        'https://i.imgur.com/hbX78gV.jpeg',
-                        'https://i.imgur.com/7RkzfhD.jpeg'
-                    ])">
-                <span class="event-date">Oct 4, 2024</span>
-            </div>
-
-            <div class="event-container">
-                <h3>Earthquake Drill</h3>
-                <img src="https://file.garden/aQ1RSq80InNm8Bm5/546622129_1181312777351713_3001568193902149375_n.jpg" class="album-cover" alt="Earthquake Drill Cover" 
-                    onclick="openGallery('Drill Photos', [
-                        'https://file.garden/aQ1RSq80InNm8Bm5/yuss.jpg',
-                        'https://file.garden/aQ1RSq80InNm8Bm5/eart.jpg',
-                        'https://i.imgur.com/RNOJOEe.jpeg',
-                        'https://i.imgur.com/rK0JkFX.jpeg',
-                        'https://i.imgur.com/hbX78gV.jpeg',
-                        'https://i.imgur.com/7RkzfhD.jpeg'
-                    ])">
-                <span class="event-date">July 10, 2024</span>
-            </div>
-
         </div>
     </div>
-</div>
-<div id="feedback" class="page">
-    <div class="glass-container" style="max-width: 500px;">
-        <h2>Student Feedback</h2>
-        <p>We value your thoughts! Please let us know your suggestions or concerns.</p>
-        
-        <div id="feedback-error" style="display:none; color: white; background: darkred; padding: 10px; border-radius: 8px; margin-bottom: 15px; font-size: 14px;"></div>
 
-        <div style="text-align: left;">
-            <label>Full Name:</label>
-            <input type="text" id="fb-name" placeholder="Enter your name..." style="width:100%; padding:12px; margin:8px 0 20px; border:1px solid #ccc; border-radius:8px;">
-
-            <label>Gmail Address:</label>
-            <input type="email" id="fb-email" placeholder="username@gmail.com" style="width:100%; padding:12px; margin:8px 0 20px; border:1px solid #ccc; border-radius:8px;">
-
-            <label>Your Message:</label>
-            <textarea id="fb-message" placeholder="Type your message here..." style="width:100%; padding:12px; margin:8px 0 20px; border:1px solid #ccc; border-radius:8px; height:100px; resize:none;"></textarea>
-
-            <button onclick="validateFeedback()" style="width:100%; padding:15px; background: darkred; color:white; border:none; border-radius:8px; font-weight:bold; cursor:pointer; transition: 0.3s;">Submit Feedback</button>
+    <div id="feedback" class="page">
+        <div class="glass-container">
+            <h2>Student Feedback</h2>
+            <div class="feedback-form">
+                <input type="text" id="fb-name" placeholder="Full Name">
+                <input type="email" id="fb-email" placeholder="Gmail Address">
+                <textarea id="fb-message" placeholder="Message..." style="height: 100px; resize: none;"></textarea>
+                <button onclick="validateFeedback()" style="padding: 15px; background: darkred; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">Submit</button>
+            </div>
         </div>
     </div>
-</div>
-    <div id="gModal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeGallery()">&times;</span>
-            <h2 id="gTitle" style="color: darkred; margin: 0 0 15px 0;">Gallery</h2>
-            <div class="gallery-grid" id="gGrid"></div>
+
+    <div id="gModal"><div class="modal-content"><span class="close-btn" onclick="closeGallery()">&times;</span><h2 id="gTitle">Gallery</h2><div class="gallery-grid" id="gGrid"></div></div></div>
+
+    <footer>
+        <p>&copy; 2026 MNHS SSLG | Supreme Secondary Learner Government</p>
+        <div style="margin-top: 5px;">
+            <a href="https://www.facebook.com/share/1EYopy2LkV/" target="_blank" style="color: #3b5998; text-decoration: none; margin: 0 5px;">Facebook</a> |
+            <a href="https://www.instagram.com/depedtayo_muntindilawnhs_sslg?igsh=MWhvcTN1bmFtbXBsaA==" target="_blank" style="color: #e1306c; text-decoration: none; margin: 0 5px;">Instagram</a>
         </div>
-    </div>
-<div class="facebook-section">
-    <p>Follow us for more updates:</p>
-    
-    <div class="button-container">
-        <!-- Facebook Button -->
-        <a href="https://www.facebook.com/share/1EYopy2LkV/" target="_blank" class="fb-button">
-            Open Facebook
-        </a>
-
-        <!-- Instagram Button -->
-        <a href="https://www.instagram.com/depedtayo_muntindilawnhs_sslg?igsh=MWhvcTN1bmFtbXBsaA==" target="_blank" class="IG-button">
-            Open Instagram
-        </a>
-    </div>
-</div>
-
-    
-    <footer><p>&copy; 2026 MNHS SSLG | Supreme Secondary Learner Government</p></footer>
+    </footer>
 
     <script>
         function changePage(id) {
@@ -334,72 +261,18 @@ to better serve its stakeholders.</p>
             document.getElementById(id).classList.add('active');
             document.getElementById('aboutMenu').classList.remove('show');
             window.scrollTo(0,0);
-        }function validateFeedback() {
-    const name = document.getElementById("fb-name").value.trim();
-    const email = document.getElementById("fb-email").value.trim();
-    const message = document.getElementById("fb-message").value.trim();
-    const errorBox = document.getElementById("feedback-error");
-
-    // Reset Error Box
-    errorBox.style.display = "none";
-    errorBox.innerHTML = "";
-
-    // 1. Validate Name (No numbers allowed)
-    if (name === "" || /\d/.test(name)) {
-        errorBox.innerHTML = "❌ Error: Please enter a valid name (letters only, no numbers).";
-        errorBox.style.display = "block";
-        return;
-    }
-
-    // 2. Validate Gmail (Must end with @gmail.com)
-    if (!email.toLowerCase().endsWith("@gmail.com")) {
-        errorBox.innerHTML = "❌ Error: Please provide a valid @gmail.com address.";
-        errorBox.style.display = "block";
-        return;
-    }
-
-    // 3. Validate Message
-    if (message.length < 5) {
-        errorBox.innerHTML = "❌ Error: Message is too short.";
-        errorBox.style.display = "block";
-        return;
-    }
-
-    // SUCCESS
-    alert("Thank you, " + name + "! Your feedback has been sent to the SSLG.");
-    
-    // Clear fields
-    document.getElementById("fb-name").value = "";
-    document.getElementById("fb-email").value = "";
-    document.getElementById("fb-message").value = "";
-}
-
-        
-
+        }
         function toggleAbout() { document.getElementById("aboutMenu").classList.toggle("show"); }
-
-        const modal = document.getElementById('gModal');
-        const grid = document.getElementById('gGrid');
-
         function openGallery(title, images) {
             document.getElementById('gTitle').innerText = title;
-            grid.innerHTML = ''; 
-            images.forEach(src => {
-                const img = document.createElement('img');
-                img.src = src;
-                grid.appendChild(img);
-            });
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; 
+            const grid = document.getElementById('gGrid');
+            grid.innerHTML = ''; images.forEach(src => { const img = document.createElement('img'); img.src = src; grid.appendChild(img); });
+            document.getElementById('gModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         }
-
-        function closeGallery() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        modal.onclick = function(e) { if(e.target === modal) closeGallery(); }
-        window.addEventListener('load', () => { document.body.appendChild(modal); });
+        function closeGallery() { document.getElementById('gModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+        window.onclick = function(e) { if(e.target === document.getElementById('gModal')) closeGallery(); }
     </script>
 </body>
-</html>
+                    </html>
+                                                                                                                   
