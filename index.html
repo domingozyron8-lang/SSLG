@@ -123,6 +123,7 @@
                 </li>
                 <li><a onclick="changePage('officers')">Officers</a></li>
                 <li><a onclick="changePage('events')">Events</a></li>
+                <li><a onclick="changePage('feedback')">Feedback</a></li>
             </ul>
         </nav>
     </header>
@@ -207,7 +208,27 @@
             </div>
         </div>
     </div>
+<div id="feedback" class="page">
+    <div class="glass-container" style="max-width: 500px;">
+        <h2>Student Feedback</h2>
+        <p>We value your thoughts! Please let us know your suggestions or concerns.</p>
+        
+        <div id="feedback-error" style="display:none; color: white; background: darkred; padding: 10px; border-radius: 8px; margin-bottom: 15px; font-size: 14px;"></div>
 
+        <div style="text-align: left;">
+            <label>Full Name:</label>
+            <input type="text" id="fb-name" placeholder="Enter your name..." style="width:100%; padding:12px; margin:8px 0 20px; border:1px solid #ccc; border-radius:8px;">
+
+            <label>Gmail Address:</label>
+            <input type="email" id="fb-email" placeholder="username@gmail.com" style="width:100%; padding:12px; margin:8px 0 20px; border:1px solid #ccc; border-radius:8px;">
+
+            <label>Your Message:</label>
+            <textarea id="fb-message" placeholder="Type your message here..." style="width:100%; padding:12px; margin:8px 0 20px; border:1px solid #ccc; border-radius:8px; height:100px; resize:none;"></textarea>
+
+            <button onclick="validateFeedback()" style="width:100%; padding:15px; background: darkred; color:white; border:none; border-radius:8px; font-weight:bold; cursor:pointer; transition: 0.3s;">Submit Feedback</button>
+        </div>
+    </div>
+</div>
     <div id="gModal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeGallery()">&times;</span>
@@ -224,7 +245,47 @@
             document.getElementById(id).classList.add('active');
             document.getElementById('aboutMenu').classList.remove('show');
             window.scrollTo(0,0);
-        }
+        }function validateFeedback() {
+    const name = document.getElementById("fb-name").value.trim();
+    const email = document.getElementById("fb-email").value.trim();
+    const message = document.getElementById("fb-message").value.trim();
+    const errorBox = document.getElementById("feedback-error");
+
+    // Reset Error Box
+    errorBox.style.display = "none";
+    errorBox.innerHTML = "";
+
+    // 1. Validate Name (No numbers allowed)
+    if (name === "" || /\d/.test(name)) {
+        errorBox.innerHTML = "❌ Error: Please enter a valid name (letters only, no numbers).";
+        errorBox.style.display = "block";
+        return;
+    }
+
+    // 2. Validate Gmail (Must end with @gmail.com)
+    if (!email.toLowerCase().endsWith("@gmail.com")) {
+        errorBox.innerHTML = "❌ Error: Please provide a valid @gmail.com address.";
+        errorBox.style.display = "block";
+        return;
+    }
+
+    // 3. Validate Message
+    if (message.length < 5) {
+        errorBox.innerHTML = "❌ Error: Message is too short.";
+        errorBox.style.display = "block";
+        return;
+    }
+
+    // SUCCESS
+    alert("Thank you, " + name + "! Your feedback has been sent to the SSLG.");
+    
+    // Clear fields
+    document.getElementById("fb-name").value = "";
+    document.getElementById("fb-email").value = "";
+    document.getElementById("fb-message").value = "";
+}
+
+        
 
         function toggleAbout() { document.getElementById("aboutMenu").classList.toggle("show"); }
 
