@@ -139,6 +139,8 @@
                     <div id="aboutMenu" class="dropdown-menu">
                         <a onclick="changePage('mission')">Mission & Vision</a>
                         <a onclick="changePage('history')">History</a>
+                            <a onclick="changePage('election')">SSLG Candidacy Form</a>
+                    </div>
                     </div>
                 </li>
                 <li><a onclick="changePage('officers')">Officers</a></li>
@@ -179,7 +181,39 @@
             <p>Serving the student body of MNHS with integrity and dedication.</p>
         </div>
     </div>
-
+      <!-- ELECTION PAGE -->
+<div id="election" class="page">
+    <div class="glass-container">
+        <h2 style="color: darkred; border-bottom: 3px solid pink; display: inline-block;">SSLG Candidacy Form</h2>
+        <p>Gusto mo bang magsilbi? Punan ang form sa ibaba para sa iyong kandidatura.</p>
+        
+        <!-- PAALALA: Palitan ang 'YOUR_FORMSPREE_ID' pagkatapos mag-register sa formspree.io -->
+        <form action="https://formspree.io" method="POST" class="feedback-form" style="max-width: 500px; margin-top: 20px;">
+            <label>Full Name:</label>
+            <input type="text" name="name" placeholder="Juan Dela Cruz" required>
+            
+            <label>Grade & Section:</label>
+            <input type="text" name="grade_section" placeholder="Grade 10 - Rizal" required>
+            
+            <label>Desired Position:</label>
+            <select name="position" style="width: 100%; padding: 12px; border: 2px solid pink; border-radius: 10px; margin-bottom: 10px;">
+                <option value="President">President</option>
+                <option value="Vice President">Vice President</option>
+                <option value="Secretary">Secretary</option>
+                <option value="Treasurer">Treasurer</option>
+                <option value="Auditor">Auditor</option>
+                <option value="PIO">Public Information Officer (PIO)</option>
+                <option value="Protocol Officer">Protocol Officer</option>
+            </select>
+            
+            <label>Platform / Advocacy (Bakit ka dapat iboto?):</label>
+            <textarea name="platform" rows="4" placeholder="Ibahagi ang iyong mga plano..." required></textarea>
+            
+            <button type="submit" style="background: darkred; color: white; border: none; padding: 15px; border-radius: 10px; cursor: pointer; font-weight: bold;">SUBMIT CANDIDACY</button>
+        </form>
+    </div>
+</div>
+    
     <div id="officers" class="page">
         <div class="glass-container">
             <h2 style="color: darkred; margin-bottom: 30px;">SSLG Officers 2025-2026</h2>
@@ -269,7 +303,27 @@
             grid.innerHTML = ''; images.forEach(src => { const img = document.createElement('img'); img.src = src; grid.appendChild(img); });
             document.getElementById('gModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
+            
         }
+        function changePage(pageId) {
+    // Itago lahat ng pages
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.classList.remove('active'));
+    
+    // Ipakita ang napiling page
+    document.getElementById(pageId).classList.add('active');
+    
+    // Itago ang dropdown menu kung sakaling nakabukas
+    document.getElementById('aboutMenu').classList.remove('show');
+    
+    // I-scroll pabalik sa taas
+    window.scrollTo(0, 0);
+}
+
+function toggleAbout() {
+    document.getElementById('aboutMenu').classList.toggle('show');
+}
+        
         function closeGallery() { document.getElementById('gModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
         window.onclick = function(e) { if(e.target === document.getElementById('gModal')) closeGallery(); }
     </script>
