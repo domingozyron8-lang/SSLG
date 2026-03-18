@@ -268,16 +268,27 @@
     </div>
 
     <div id="feedback" class="page">
-        <div class="glass-container">
-            <h2>Student Feedback</h2>
-            <div class="feedback-form">
-                <input type="text" id="fb-name" placeholder="Full Name">
-                <input type="email" id="fb-email" placeholder="Gmail Address">
-                <textarea id="fb-message" placeholder="Message..." style="height: 100px; resize: none;"></textarea>
-                <button onclick="validateFeedback()" style="padding: 15px; background: darkred; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">Submit</button>
-            </div>
-        </div>
+    <div class="glass-container">
+        <h2>Student Feedback</h2>
+        <!-- Form para sa automatic validation at email sending -->
+        <form action="https://formsubmit.co" method="POST" id="fb-form" class="feedback-form">
+            <input type="text" name="name" id="fb-name" placeholder="Full Name" 
+                   required pattern="[A-Za-z\s]+" title="Letters only please (Bawal ang numbers)">
+            
+            <input type="email" name="email" id="fb-email" placeholder="Gmail Address" required>
+            
+            <textarea name="message" id="fb-message" placeholder="Message..." 
+                      style="height: 100px; resize: none;" required></textarea>
+            
+            <!-- Settings para sa redirect pagkatapos mag-send -->
+            <input type="hidden" name="_next" value="https://zyron8-lang.github.io">
+            <input type="hidden" name="_subject" value="New Student Feedback!">
+
+            <button type="submit" style="padding: 15px; background: darkred; color:white; border:none; border-radius:10px; cursor:pointer; font-weight:bold;">Submit</button>
+        </form>
     </div>
+</div>
+
 
     <div id="gModal"><div class="modal-content"><span class="close-btn" onclick="closeGallery()">&times;</span><h2 id="gTitle">Gallery</h2><div class="gallery-grid" id="gGrid"></div></div></div>
 
@@ -319,7 +330,22 @@
     // I-scroll pabalik sa taas
     window.scrollTo(0, 0);
 }
+// Idagdag ito sa loob ng iyong <script> tag sa ibaba
+document.getElementById('fb-form').onsubmit = function(e) {
+    const name = document.getElementById('fb-name').value;
+    const email = document.getElementById('fb-email').value;
 
+    // Check kung ang email ay nagtatapos sa @gmail.com (Custom validation)
+    if (!email.endsWith("@gmail.com")) {
+        alert("Paki-check ang iyong email. Dapat ito ay @gmail.com account.");
+        e.preventDefault(); // Pipigilan ang pag-send
+        return false;
+    }
+
+    alert("Salamat " + name + "! Ipinapadala na ang iyong feedback.");
+    return true;
+};
+            
 function toggleAbout() {
     document.getElementById('aboutMenu').classList.toggle('show');
 }
